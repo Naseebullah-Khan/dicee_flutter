@@ -14,8 +14,15 @@ void main() {
 
 class DicePage extends StatelessWidget {
   const DicePage({super.key});
+  // DicePage({super.key});
+
+  // var leftDiceNumber = 2;
+
   @override
   Widget build(BuildContext context) {
+    var leftDiceNumber = 1;
+    var rightDiceNumber = 1;
+
     return Center(
       child: Row(
         children: [
@@ -24,7 +31,7 @@ class DicePage extends StatelessWidget {
               padding: const EdgeInsets.all(16.0),
               child: GestureDetector(
                 onTap: () => {print("The left dice got tapped!")},
-                child: Image.asset("images/dice1.png"),
+                child: Image.asset("images/dice$leftDiceNumber.png"),
               ),
             ),
           ),
@@ -33,7 +40,7 @@ class DicePage extends StatelessWidget {
               padding: const EdgeInsets.all(16.0),
               child: GestureDetector(
                 onTap: () => {print("The right dice got tapped!")},
-                child: Image.asset("images/dice2.png"),
+                child: Image.asset("images/dice$rightDiceNumber.png"),
               ),
             ),
           ),
