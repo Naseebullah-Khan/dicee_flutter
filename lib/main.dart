@@ -26,6 +26,13 @@ class _DicePageState extends State<DicePage> {
   int rightDiceNumber = 1;
   Random random = Random();
 
+  void changeDice() {
+    setState(() {
+      leftDiceNumber = random.nextInt(6) + 1;
+      rightDiceNumber = random.nextInt(6) + 1;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -35,11 +42,7 @@ class _DicePageState extends State<DicePage> {
             child: Padding(
               padding: const EdgeInsets.all(16.0),
               child: GestureDetector(
-                onTap: () => {
-                  setState(() {
-                    leftDiceNumber = random.nextInt(6) + 1;
-                  }),
-                },
+                onTap: changeDice,
                 child: Image.asset("images/dice$leftDiceNumber.png"),
               ),
             ),
@@ -48,11 +51,7 @@ class _DicePageState extends State<DicePage> {
             child: Padding(
               padding: const EdgeInsets.all(16.0),
               child: GestureDetector(
-                onTap: () => {
-                  setState(() {
-                    rightDiceNumber = random.nextInt(6) + 1;
-                  }),
-                },
+                onTap: changeDice,
                 child: Image.asset("images/dice$rightDiceNumber.png"),
               ),
             ),
